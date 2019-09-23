@@ -522,17 +522,19 @@ hr.slender {
 /* --- Icomoon icon fonts CSS --*/
 @font-face {
   font-family: 'icomoon';
-  src:url('../fonts/icomoon.eot?rgwlb8');
-  src:url('../fonts/icomoon.eot?#iefixrgwlb8') format('embedded-opentype'),
-    url('../fonts/icomoon.woff?rgwlb8') format('woff'),
-    url('../fonts/icomoon.ttf?rgwlb8') format('truetype'),
-    url('../fonts/icomoon.svg?rgwlb8#icomoon') format('svg');
+  src:  url('../fonts/icomoon.eot?4v7u8n');
+  src:  url('../fonts/icomoon.eot?4v7u8n#iefix') format('embedded-opentype'),
+    url('../fonts/icomoon.ttf?4v7u8n') format('truetype'),
+    url('../fonts/icomoon.woff?4v7u8n') format('woff'),
+    url('../fonts/icomoon.svg?4v7u8n#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
+  font-display: block;
 }
 
 [class^="icon-"], [class*=" icon-"] {
   font-family: 'icomoon';
+  font-size: 1.5rem;
   speak: none;
   font-style: normal;
   font-weight: normal;
@@ -546,52 +548,16 @@ hr.slender {
   -moz-osx-font-smoothing: grayscale;
 }
 
-.icon-pencil:before {
-  content: "\e600";
-}
-.icon-film:before {
-  content: "\e60f";
-}
-.icon-calendar:before {
-  content: "\e601";
-}
-.icon-link:before {
-  content: "\e602";
-}
-.icon-info:before {
-  content: "\e603";
-}
-.icon-cancel-circle:before {
-  content: "\e604";
-}
-.icon-checkmark-circle:before {
-  content: "\e605";
-}
-.icon-spam:before {
+.icon-mail:before {
   content: "\e606";
 }
-.icon-mail:before {
-  content: "\e607";
-}
-.icon-googleplus:before {
-  content: "\e608";
-}
-.icon-facebook:before {
-  content: "\e609";
-}
-.icon-twitter:before {
-  content: "\e60a";
-}
-.icon-feed:before {
-  content: "\e60b";
-}
-.icon-flickr:before {
-  content: "\e60c";
-}
 .icon-github:before {
-  content: "\e60d";
+  content: "\e603";
 }
-.icon-box-add:before {
-  content: "\e60e";
+.icon-download:before {
+  content: "\e600";
+}
+.icon-linkedin:before {
+  content: "\e605"
 }
 /*-- End of Icomoon icon font section --*/
