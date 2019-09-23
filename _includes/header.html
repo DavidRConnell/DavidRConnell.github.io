@@ -5,7 +5,7 @@
 		{% if page.url == entry.link %}
 			<a class="active" href="{{entry.link | prepend: site.baseurl}}" class="active">{{entry.name}}</a>
 		{% else %}
-			<a href="{{entry.link | prepend: site.baseurl}}">{{entry.name}}</a>
+			<a class="notactive" href="{{entry.link | prepend: site.baseurl}}">{{entry.name}}</a>
 		{% endif %}
   	{% endfor %}
 	</nav>
