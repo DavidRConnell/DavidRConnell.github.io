@@ -1,0 +1,51 @@
+# Education
+School: Illinois Institute of Technology
+Location: Chicago, IL
+Date: December 2017
+Degree: Master of Science
+Program: Biomedical Engineering
+GPA: 3.88
+Classes: Random Signal Analysis, Biostatistics, Quantitative Physiology
+
+School: Miami University
+Location: Oxford, OH
+Date: December 2015
+Degree: Bachelor of Science
+Program: Bioengineering
+GPA: 3.42
+Classes: Biomedical Signal Analysis, Molecular Biology, Biochemistry
+
+# Master Thesis
+Description: Using an Apple Watch for detection and prevention of Sudden Unexpected Death in Epilepsy (SUDEP)
+Items: Detects the onset of SUDEP during sleep by collecting and processes pulse and motion data.%Calculates test statistics in real time to determine whether user is in normal or seizure state.%Sends notification to nearby caretaker to intervene.%Marks events and stores data on database for future SUDEP research.%Wrote python module for accessing database.
+
+# Experience
+Place: Rush University Medical Center
+Position: Senior Research Engineer
+Date: 2018--present
+Department: Rush Alzheimer's Disease Center
+Items: filler
+ExactDate: start: April 14th 2018
+
+Place: Illinois Institute of Technology
+Position: Graduate Teacher Assistant
+Date: 2016--2017
+Department: Department of Biomedical Engineering
+Items: Physiology Lab ... Fall 2017%Instrumentation and Measurement Laboratory ... Spring 2017%Bioelectronics Laboratory ... Fall 2016%
+
+Raw_Latex: \vspace{-0.5em}\n\noindent {\footnotesize Designed lab protocols, wrote programs, graded papers, setup lab instruments, held office hours, and tutored.}\n\n\vspace{-5pt}
+
+Place: Miami University
+Position: Student Research Assistant
+Date: 2015
+Department: Department of Electrical and Computer Engineering
+Items: Derived algorithm for monitoring ECGs in MATLAB.%Algorithm for automated detection of arrhythmia and ECG annotation.%Found R-R interval, P-waves, T-waves, and QRS-complexes.%Looked for missing waves and high or low heart rates.
+
+Place: Ohio State University Medical Center
+Position: Summer Student Research Assistant
+Date: 2012,2013,2016
+Department: Anesthesia Research Lab
+Items: Presented current anesthesia monitoring systems to anesthesiology staff.%Wrote programs in VBA to modify Excel files.%Retrieved data for studies on perioperative pressure ulcer prevention, foreign body ingestion by federal inmates, and the affects of tranexamic acid on blood loss during hip replacement surgery.
+
+# Computer Languages
+List: MATLAB, Python, Bash, Lisp, Swift, \LaTeX
