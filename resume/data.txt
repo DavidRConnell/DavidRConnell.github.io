@@ -31,9 +31,9 @@ Place: Illinois Institute of Technology
 Position: Graduate Teacher Assistant
 Date: 2016--2017
 Department: Department of Biomedical Engineering
-Items: Physiology Lab ... Fall 2017%Instrumentation and Measurement Laboratory ... Spring 2017%Bioelectronics Laboratory ... Fall 2016%
+Items: Physiology Lab ... Fall 2017%Instrumentation and Measurement Laboratory ... Spring 2017%Bioelectronics Laboratory ... Fall 2016
 
-Raw_Latex: \vspace{-0.5em}\n\noindent {\footnotesize Designed lab protocols, wrote programs, graded papers, setup lab instruments, held office hours, and tutored.}\n\n\vspace{-5pt}
+Raw_Latex: \vspace{-0.5em}\N\noindent {\footnotesize Designed lab protocols, wrote programs, graded papers, setup lab instruments, held office hours, and tutored.}\N\N\vspace{1em}
 
 Place: Miami University
 Position: Student Research Assistant
