@@ -312,7 +312,7 @@ function writemarkdownelement(element::Languages)
 end
 
 function rightalign(text)
-    "{% marginnote \'mn-id-$text\' \'<span style=\"font-size: 125%\">$text</span>\'%}"
+    "{% marginnote \'mn-id-$text\' \'<span style=\"font-size: 110%\">$text</span>\'%}"
 end
 
 function listitem(item)
