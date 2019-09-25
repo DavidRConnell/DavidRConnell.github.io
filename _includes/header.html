@@ -9,4 +9,12 @@
 		{% endif %}
   	{% endfor %}
 	</nav>
+
+	<p></p>
+	<ul class="container">
+		<a href="mailto:{{ site.email }}"><span class="icon-mail"></span></a>
+		{% for entry in site.data.social %}
+			<a href="{{ entry.link }}"><span class="{{ entry.icon }}"></span></a>
+	{% endfor %}
+	</ul>
 </header>
