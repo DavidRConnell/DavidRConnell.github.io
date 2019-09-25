@@ -53,7 +53,7 @@ predefined structures.
 *Special characters*
 %: seperates items in a list.
 ...: switches from left to right justification for the remaider of the line.
-Raw_Latex: Latex code that isn't altered in any way when being read. (Except \N is used inplace of an actual line break)"
+Raw_Latex: Latex code that isn't altered in any way when being read. (Except \\N is used inplace of an actual line break)"
 function tokenize(file)
     open(file, "r") do f
         sections = []
@@ -119,10 +119,10 @@ end
 
 function latexexport(tokens)
     open("resume.tex", "w") do f
-        str = writepreamble()
-        str *= beginresume()
+        str = writelatexpreamble()
+        str *= beginlatexresume()
         for section in tokens
-            str *= writesection(section)
+            str *= writesection(section, "latex")
         end
         str *= raw"
 
@@ -133,7 +133,36 @@ function latexexport(tokens)
     end
 end
 
-function writepreamble()
+function markdownexport(tokens)
+    open("../resume.markdown", "w") do f
+        str = writemarkdowntopmatter()
+        str *= adddownloadbutton()
+        for section in tokens
+            str *= writesection(section, "markdown")
+        end
+
+        @printf(f, "%s", str)
+    end
+end
+
+function writesection(section, filetype)
+    if filetype == "latex"
+        writelatexsection(section)
+    else
+        writemarkdownsection(section)
+    end
+end
+
+function writeelement(element, filetype)
+    if filetype == "latex"
+        writelatexelement(element)
+    else
+        writemarkdownelement(element)
+    end
+end
+
+# LaTeX functions
+function writelatexpreamble()
     raw"\documentclass{resume}
 
 \author{David R. Connell}
@@ -149,7 +178,7 @@ function writepreamble()
 }"
 end
 
-function beginresume()
+function beginlatexresume()
     raw"
 
 \begin{document}
@@ -158,17 +187,17 @@ function beginresume()
 "
 end
 
-function writesection(section)
+function writelatexsection(section)
     str = "
     \\section{$(section.name)}"
 
     for element in section.elements
-        str *= writeelements(element)
+        str *= writeelement(element, "latex")
     end
     return str
 end
 
-function writeelements(element::Education)
+function writelatexelement(element::Education)
     "
         \\education{$(element.degree[1]), $(element.program[1])}%
             {$(element.date[1])}%
@@ -178,7 +207,7 @@ function writeelements(element::Education)
 "
 end
 
-function writeelements(element::Thesis)
+function writelatexelement(element::Thesis)
     str = "
     \\textbf{$(element.description[1])}
     %
@@ -198,7 +227,7 @@ function writeelements(element::Thesis)
 "
 end
 
-function writeelements(element::Experience)
+function writelatexelement(element::Experience)
     str = "
     \\experience%
         {$(element.position[1]): \\textit{$(element.place[1])}}%
@@ -214,24 +243,105 @@ function writeelements(element::Experience)
 "
 end
 
-function writeelements(element::Languages)
+function writelatexelement(element::Languages)
     "
     " * element.list[1]
 end
 
-function writeelements(element::Latex)
+function writelatexelement(element::Latex)
     "
     " * join(split(element.value[1], raw"\N"), "\n    ") * "
 "
 end
 
-# function markdownexport(tokens)
-#     open(resume.markdown, "w") do f
-#     end
-# end
+# Markdown functions
+function writemarkdowntopmatter()
+    "---
+title: Résumé
+layout: default
+---
 
+"
+end
+
+function adddownloadbutton()
+    "{% include button.html button_name=\"PDF Version\" button_class=\"outline-primary\" file=\"/downloads/resume.pdf\" %}"
+end
+
+function writemarkdownsection(section)
+    str = "
+
+## $(section.name)
+"
+
+    for element in section.elements
+        isa(element, Latex) && continue
+        str *= writeelement(element, "markdown")
+    end
+    return str
+end
+
+function writemarkdownelement(element::Education)
+    "**$(element.degree[1]), $(element.program[1])**" *
+        rightalign("**$(element.date[1])**") *
+        "\n#### $(element.school[1]), $(element.location[1])" *
+        "\n#### $(element.gpa[1])\n\n"
+end
+
+function writemarkdownelement(element::Thesis)
+    str = "**$(element.description[1])**\n\n"
+    for item in element.items
+        str *= listitem(item)
+    end
+    return str
+end
+
+function writemarkdownelement(element::Experience)
+    str = "**$(element.position[1]): *$(element.place[1])***" *
+        rightalign("**$(element.date[1])**") *
+        "\n#### $(element.department[1])\n\n"
+
+    for item in element.items
+        str *= listitem(item)
+    end
+    return str
+end
+
+function writemarkdownelement(element::Languages)
+    element.list[1]
+end
+
+function rightalign(text)
+    "{% marginnote \'mn-id-$text\' \'<span style=\"font-size: 125%\">$text</span>\'%}"
+end
+
+function listitem(item)
+    item = alignatdots(item)
+    words = split(item, " ")
+    if length(words) > 3
+        firstwords = join(words[1:2], " ")
+        lastwords = join(words[3:end], " ")
+    else
+        firstwords = item
+        lastwords = ""
+    end
+
+    "<span style=\"font-size: 75%\">{% newthought \'$firstwords\' %} $lastwords</span>\n\n"
+end
+
+function alignatdots(text)
+    str = ""
+    for (i, s) in enumerate(split(text, "... "))
+        if iseven(i)
+            str *= rightalign(s)
+        else
+            str *= s
+        end
+    end
+    return str
+end
+
+# Main
 tokens = tokenize(DATAPATH)
 latexexport(tokens)
-# markdownexport(tokens)
-
-# @info s[1].elements[1].location
+markdownexport(tokens)
