@@ -92,18 +92,12 @@ end
 
 function addelement!(sections, sectionname)
     currentlist = sections[end].elements
+    string2type = Dict("Education" => Education,
+                       "Master Thesis" => Thesis,
+                       "Experience" => Experience,
+                       "Computer Languages" => Languages)
 
-    if sectionname == "Education"
-        push!(currentlist, Education())
-    elseif sectionname == "Master Thesis"
-        push!(currentlist, Thesis())
-    elseif sectionname == "Experience"
-        push!(currentlist, Experience())
-    elseif sectionname == "Computer Languages"
-        push!(currentlist, Languages())
-    else
-        @error "Not a known section"
-    end
+    push!(currentlist, string2type[sectionname]())
 end
 
 function addfield!(sections, field, value)
