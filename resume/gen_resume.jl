@@ -63,7 +63,7 @@ function tokenize(file)
             firstword = words[1]
 
             if firstword == "#"
-                removesection!(sections, currentsection)
+                removeelement!(sections, currentsection)
                 currentsection = join(words[2:end], " ")
                 addsection!(sections, currentsection)
             elseif firstword == ""
@@ -80,7 +80,7 @@ function tokenize(file)
     end
 end
 
-function removesection!(sections, sectionname)
+function removeelement!(sections, sectionname)
     length(sections) > 0 || return
     pop!(sections[end].elements)
 end
