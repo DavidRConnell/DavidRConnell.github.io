@@ -297,7 +297,7 @@ function writemarkdownelement(element::Experience)
 end
 
 function writemarkdownelement(element::Languages)
-    element.list[1]
+    replace(element.list[1], raw"\LaTeX" => "LaTeX")
 end
 
 function rightalign(text)
