@@ -45,14 +45,14 @@ end
 
 "Tokenize the data in file *file*. Lines starting with a # denote section
 headers and are used to name the list of elements under the header. Elements are
-seperated by blank lines and fields marked by name: data.
+separated by blank lines and fields marked by name: data.
 
 Returns a list of sections which are in turn a list of elements. Elements are
 predefined structures.
 
 *Special characters*
-%: seperates items in a list.
-...: switches from left to right justification for the remaider of the line.
+%: separates items in a list.
+...: switches from left to right justification for the remainder of the line.
 Raw_Latex: Latex code that isn't altered in any way when being read. (Except \\N is used inplace of an actual line break)"
 function tokenize(file)
     open(file, "r") do f
@@ -66,9 +66,9 @@ function tokenize(file)
                 removeelement!(sections, currentsection)
                 currentsection = join(words[2:end], " ")
                 addsection!(sections, currentsection)
-            elseif firstword == ""
+            elseif isempty(ln)
                 addelement!(sections, currentsection)
-            elseif firstword[end:end] == ":"
+            elseif endswith(firstword, ":")
                 field = firstword[1:end-1]
                 value = split(join(words[2:end], " "), "%")
                 addfield!(sections, field, value)
