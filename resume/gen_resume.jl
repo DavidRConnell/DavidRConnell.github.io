@@ -269,10 +269,7 @@ function adddownloadbutton()
 end
 
 function writemarkdownsection(section)
-    str = "
-
-## $(section.name)
-"
+    str = "\n\n### $(section.name)\n"
 
     for element in section.elements
         isa(element, Latex) && continue
@@ -283,28 +280,20 @@ end
 
 function writemarkdownelement(element::Education)
     "**$(element.degree[1]), $(element.program[1])**" *
-        rightalign("**$(element.date[1])**") *
-        "\n#### $(element.school[1]), $(element.location[1])" *
-        "\n#### $(element.gpa[1])\n\n"
+    rightalign("**$(element.date[1])**") *
+    "\n#### $(element.school[1]), $(element.location[1])" *
+    "\n#### $(element.gpa[1])\n\n"
 end
 
 function writemarkdownelement(element::Thesis)
-    str = "**$(element.description[1])**\n\n"
-    for item in element.items
-        str *= listitem(item)
-    end
-    return str
+    "**$(element.description[1])**\n\n"
 end
 
 function writemarkdownelement(element::Experience)
-    str = "**$(element.position[1]): *$(element.place[1])***" *
-        rightalign("**$(element.date[1])**") *
-        "\n#### $(element.department[1])\n\n"
-
-    for item in element.items
-        str *= listitem(item)
-    end
-    return str
+    "**$(element.position[1])**" *
+    rightalign("**$(element.date[1])**") *
+    "\n#### $(element.place[1])" *
+    "\n#### $(element.department[1])\n\n"
 end
 
 function writemarkdownelement(element::Languages)
@@ -313,20 +302,6 @@ end
 
 function rightalign(text)
     "{% marginnote \'mn-id-$text\' \'<span style=\"font-size: 110%\">$text</span>\'%}"
-end
-
-function listitem(item)
-    item = alignatdots(item)
-    words = split(item, " ")
-    if length(words) > 3
-        firstwords = join(words[1:2], " ")
-        lastwords = join(words[3:end], " ")
-    else
-        firstwords = item
-        lastwords = ""
-    end
-
-    "<span style=\"font-size: 75%\">{% newthought \'$firstwords\' %} $lastwords</span>\n\n"
 end
 
 function alignatdots(text)
