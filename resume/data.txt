@@ -17,14 +17,14 @@ Classes: Biomedical Signal Analysis, Molecular Biology, Biochemistry
 
 # Master Thesis
 Description: Using an Apple Watch for detection and prevention of Sudden Unexpected Death in Epilepsy (SUDEP)
-Items: Detects the onset of SUDEP during sleep by collecting and processes pulse and motion data.%Calculates test statistics in real time to determine whether user is in normal or seizure state.%Sends notification to nearby caretaker to intervene.%Marks events and stores data on database for future SUDEP research.%Wrote python module for accessing database.
+Items: Detects the onset of SUDEP during sleep by collecting and processing pulse and motion data.%Calculates test statistics in real time to determine whether user is in normal or seizure state.%Sends notifications to nearby caretaker to intervene.%Marks events and stores data on database for future SUDEP research.%Wrote python module for accessing database.
 
 # Experience
 Place: Rush University Medical Center
 Position: Senior Research Engineer
 Date: 2018--present
 Department: Rush Alzheimer's Disease Center
-Items: filler
+Items: Developed pipelines for automatically processing data added to a server.%Reverse engineered signals to allow continuation of data collection with new devices.%Designed Neural Networks for predicting onset of Alzheimer's disease%Used machine learning techniques to detect Atrial Fibrillation.
 ExactDate: start: April 14th 2018
 
 Place: Illinois Institute of Technology
