@@ -359,7 +359,7 @@ header > nav  a{
   padding-top: 1.5rem;
   text-decoration: none;
   display: inline-block;
-  float: justify;
+  float: center;
   margin-top: 0;
   margin-bottom: 0;
   padding-right: 2rem;
@@ -372,8 +372,9 @@ header > nav a img{
   max-width: 100%;
   top:-1.5rem;
 }
-header > ul a{
-  padding-right: 0.25rem;
+nav.container a{
+  padding-right: 0.5rem;
+  letter-spacing: 0.01em;
 }
 ul.footer-links, .credits{
   list-style: none;
