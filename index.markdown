@@ -12,7 +12,6 @@ Passionate about computers and how they can be used to aid in research and
 provide reproducable work.
 
 ## Site Contents
-{% newthought 'Goals' %} What I would like to get out of a PhD programm.
 
 {% newthought 'Résumé' %} List of degrees and work experiences. The site as a
 whole is intended to provide the additional information about the experiences
