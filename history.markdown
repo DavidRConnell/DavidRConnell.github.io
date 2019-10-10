@@ -3,12 +3,11 @@ title: History
 layout: default
 ---
 
-## Predicting onset of Alzheimer's<a name="prediction"></a>
-{% marginnote 'mn-id-contents' '*Contents*<br>
-[Predicting onset of Alzheimer''s](#prediction)<br>
+{% marginnote 'mn-id-contents' "*Contents*<br>
 [GENEActiv Workflow](#geneactiv)<br>
+[Predicting onset of Alzheimer's Disease](#prediction)<br>
 [Hodgkin Huxley model](#HHmodel)<br>
-[Muscle Twitch Simulation](#twitch)' %}
+[Muscle Twitch Simulation](#twitch)" %}
 
 aeou aoeu aeo uathsaoeu ithaeu
 
