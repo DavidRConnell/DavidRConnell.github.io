@@ -12,18 +12,17 @@ Passionate about computers and how they can be used to aid in research and
 provide reproducable work.
 
 ## Site Contents
+{% newthought 'Résumé' %} -- List of degrees and work experiences.
+Toned down as the site as a whole is intended to provide extra information about
+my experiences and objectives.
+Additonally, there is a [link](/downloads/resume.pdf) to a more traditional PDF
+version.
 
-{% newthought 'Résumé' %} List of degrees and work experiences. The site as a
-whole is intended to provide the additional information about the experiences
-and my objectives. Additionally, there is a [link](/downloads/resume.pdf) to a
-more traditional PDF version including a brief account of my goals and work
-history.
-
-{% newthought 'History' %} A description of select projects, completed and
+{% newthought 'History' %} -- Description of select projects, completed and
 ongoing, from work and school.
 
-{% newthought 'Thesis' %} A copy of my master thesis on detecting Sudden
+{% newthought 'Thesis' %} -- A copy of my master thesis on detecting Sudden
 Unexpected Death in Epilepsy with an Apple Watch{% sidenote 'mn-id-thesiscode'
 'The [Python code](https://github.com/DavidRConnell/SUDEPmonitor) for
 downloading and analyzing files from the created database' %}.
-
+(Link opens a PDF.)
