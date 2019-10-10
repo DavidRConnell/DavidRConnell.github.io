@@ -226,4 +226,19 @@ without over-connecting the network.
 
 ## Muscle Twitch Simulation<a name="twitch"></a>
 
-{% fullwidth 'assets/img/muscleTwitch.svg' 'aoeu' %}
+<br>
+{% fullwidth 'assets/img/muscleTwitch.svg'
+'Figure 9: GUI for simulating muscle contraction due to varying impulse trains.' %}<a name="muscleTwitch"></a>
+<br>
+
+Based on the paper by Kesar T. et al, *Predicting Muscle Forces of Individuals with
+hemiparesis following stroke*, [Figure 9](#muscleTwitch) simulates the
+contraction of a muscle in response to an impulse train.
+Taking advantage of the summative properties of muscle contraction the solution
+of the entire train of impulses can be simplified to the sum of the solution to
+a single impulse copied and time-shifted for each identical impulse.
+This significantly reduces the computation time of the ordinary differential
+equation (ODE) solver, the slowest part of the simulation.
+Additionally, many of the parameters that can be changed in the GUI do not
+affect the muscle's impulse response preventing the need to resolve the ODE,
+making the new simulation appear nearly instantaneous.
