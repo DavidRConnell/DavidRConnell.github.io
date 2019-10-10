@@ -9,7 +9,9 @@ layout: default
 [Hodgkin Huxley model](#HHmodel)<br>
 [Muscle Twitch Simulation](#twitch)" %}
 
-aeou aoeu aeo uathsaoeu ithaeu
+The first two projects have been part of my work at Rush University while the
+latter two come from class work as part of my Master's degree at Illinois
+Institute of Technology.
 
 ## GENEActiv Workflow<a name="geneactiv"></a>
 
