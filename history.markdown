@@ -5,11 +5,10 @@ layout: default
 
 {% marginnote 'mn-id-contents' "*Contents*<br>
 [GENEActiv Workflow](#geneactiv)<br>
-[Predicting onset of Alzheimer's Disease](#prediction)<br>
 [Hodgkin Huxley model](#HHmodel)<br>
 [Muscle Twitch Simulation](#twitch)" %}
 
-The first two projects have been part of my work at Rush University while the
+The first project has been part of my work at Rush University while the
 latter two come from class work as part of my Master's degree at Illinois
 Institute of Technology.
 
