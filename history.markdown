@@ -17,20 +17,19 @@ Institute of Technology.
 The GENEActiv workflow has been my largest contribution at Rush.
 GENEActivs are a wrist worn device that record a high time resolution
 accelerometer signal along with skin temperature and light intensity.
-The GENEActivs have been used to be a modern replacement for a previous activity monitor
-to provide additional information.
-The activity monitors used an accelerometer as well but to save limited storage
-space the signal was processed in real-time to a new "counts" signal intended to
-summarize the wearer's activity levels over the last 15 seconds.
-As such the first task was to imitate the activity monitor's signal to allow
-GENEActiv data to contribute to the activity monitor's data set.
+The GENEActivs are used as a modern replacement for a previous activity monitor,
+an actical, to provide additional information.
+Actical used an accelerometer as well but to save limited storage space the
+signal was processed in real-time to a new "counts" signal intended to summarize
+the wearer's activity levels over the last 15 seconds.
+As such the first task was to imitate the actical's signal to allow GENEActiv
+data to contribute to the actical data set.
 
 After successfully converting the GENEActiv signal to counts, incoming files
 needed to be processed and summarized to start the inflow of new data.
-Processing includes quality control and converting to counts while summarizing
-used the counts signal to recreate the activity monitor's variables and, to make
-use of the additional information in the GENEActiv signals, calculated new
-variables with the raw accelerometer signal.
+Processing includes quality control, converting to counts, calculating actical's
+variables and, to make use of the additional information in the GENEActiv
+signals, calculating new variables from the raw accelerometer signal.
 
 <br>
 {% fullwidth 'assets/img/geneactivQc.svg'
@@ -38,16 +37,16 @@ variables with the raw accelerometer signal.
 Red shaded area marks days auto-detected as missing.' %}<a name ="geneactivQc"></a>
 <br>
 
-When GENEActiv files come in they can include periods at the end of the signal
-when after the device was removed from the participant, and in some cases
-multiple days of non-wear. 
-After prepossessing and removing corrupt files, the files are manually check
-with a quality control GUI ([Figure 1](#geneactivQc)).
-The GUI looks for missing days and periods when the device was temporarily
-removed.
-A linear decision line using the number of times the acceleration signal crossed
-zero and the standard deviation in skin temperature over the day was used to
-identify days after the device was removed (the red shaded area above).
+When GENEActiv files come in they can include periods at the end of their signal
+after the device was removed from the participant.
+To remove these segments and times when the participant removed the device,
+files are manually check with a quality control GUI ([Figure 1](#geneactivQc)).
+A user selects the days at the bottom corresponding to periods of non-wear.
+To assist the process, the GUI searches for these windows with a linear
+decision line using the number of times the acceleration signal crossed zero and
+the standard deviation in skin temperature over the day. 
+In [Figure 1](#geneactivQc) above the shaded red area indicates a day that
+should likely be removed.
 
 With the signals cleaned, they are sent down two paths.
 The first goes on to mimic it's predecessor and the second to add new variables.
@@ -70,57 +69,60 @@ non-walking periods, when searching for windows with a high concentration of
 steps (indicated by the black lines below the accelerometer data) the calculated
 time walking matches the true (step tracker) data closely.
 
-
 ## Hodgkin Huxley model<a name="HHmodel"></a>
 
 My favorite project from school was using the Hodgkin Huxley model to simulate
-neurons and show some of the characteristics
-{% sidenote 'mn-id-hhcode' 'The [MATLAB
-code](https://github.com/DavidRConnell/Hodgkin_Huxley_Model) for simulating the Hodgkin Huxley neurons and generating the figures. (Note: the figures here have
-been modified to better match the site theme)' %}.
+neurons and show some of their characteristics
+{% sidenote 'mn-id-hhcode' 
+'The [MATLAB code](https://github.com/DavidRConnell/Hodgkin_Huxley_Model) 
+for simulating the Hodgkin Huxley neurons and generating the figures. (Note: the
+figures here have been modified to better match the site theme)' %}.
 Inspired by Eugene M. Izhikevich's book *Dynamical Systems in Neuroscience* and
 György Buzsáki's *Rhythms of the Brain*, the simulation was used to show
-refactory periods, the change in firing threshold based on the
-neuron's state, how rhythms can naturally occur, and a simple and
-meaningless network of neurons continuously stimulated each other was created by
-connecting copies of the simultated neurons.
+refractory periods, the change in firing threshold based on the
+neuron's state, how rhythms occur, and a simple and meaningless network of
+neurons continuously stimulated each other was created by connecting 50
+simulated neurons.
 
 Action potentials are the result of charged ions (such as Na<sup>+</sup>
-K<sup>+</sup>) moving in and out of the cell.
+K<sup>+</sup>) moving in and out of a neuron, changing it's membrane potential.
 Neurons actively drive Na<sup>+</sup> ions out of the cell and K<sup>+</sup>
-into the cell, past equilibrium.
+into the cell, past their equilibrium concentrations.
 As a result, if the ions are allowed to flow freely they will move back towards
 equilibrium, down the electrochemical gradient, leading to a net change in
 membrane potential.
 As a relative measure (charge outside the cell relative to inside of the
-cell), a reference membrane potential can be set to any value, for simplicity
-Hodgkin and Huxley chose {% m %}0{% em %}mV to be the membrane potential of a neuron at rest.
+cell), the membrane potential is dependent on a reference point that can be
+set to any value.
+For simplicity Hodgkin and Huxley chose {% m %}0{% em %}mV to be the membrane
+potential of a neuron at rest.
 
 Voltage-gated channels prevent the ions from returning to equilibrium during
-rest; however positive changes in the membrane potential can open the gates and
-cause a spike in potential that will in turn open channels down the neuron,
+rest; however positive changes in the membrane potential can open the gates
+causing a spike in potential that will in turn open channels down the neuron,
 propagating the potential change along the neuron's axon.
 
 Three types of ion channels are considered in Hodgkin and Huxley's
 model: Na<sup>+</sup>, K<sup>+</sup>, and leak channels.
-The former two being voltage gated while the leak channels are continously open
-allowing a limited flow of ions.
+The former two being voltage gated while the leak channels are always open
+allowing a limited flow of ions and other charged particles through the cell's
+membrane.
 In practice voltage-gated channels don't open at exactly the same threshold
 potential, instead there is a distribution of thresholds.
 At a given membrane potential a randomly chosen gate has some probability of
 being open.
 Due to the large number of channels in a cell the probability of an individual
-gate being open should be approximately the fraction of the same type of ion
-channels being active.
-In Hodgkin-Huxley notation <span style="color:#a04800">n</span> is the
+gate being open should approximately be the fraction of that type of ion
+channel currently active.
+In Hodgkin-Huxley notation, <span style="color:#a04800">n</span> is the
 probability of activation for K<sup>+</sup> channels, 
 <span style="color:#006060">m</span> is that for Na<sup>+</sup> channels, and
 <span style="color:#008000">h</span> is the Na<sup>+</sup> channel's probability
 of inactivation.
 To prevent action potentials from moving backwards and give time for the cell to
-rebuild its electrochemical gradients the Na<sup>+</sup> channel's become
+rebuild its electrochemical gradients the Na<sup>+</sup> channels become
 inactive immediately after they close.
-Confusingly the probability of inactivation is one minus the probability that
+Confusingly, the probability of inactivation is one minus the probability that
 the channel is inactivated (i.e. a value near {% m %} 0 {% em %} means channels
 are likely inactive).
 
@@ -128,16 +130,18 @@ are likely inactive).
 'Figure 3: Probabilities of (in)activation over the duration of an action
 potential.' %}<a name="activationprobability"></a>
 
-[Figure 3](#activationprobability) shows how the Na<sup>+</sup> channels respond
-before the K<sup>+</sup>, <span style="color:#006060">m</span> increases quicker
-than <span style="color:#a04800">n</span>.
+[Figure 3](#activationprobability) shows an action potential (top) and the
+cell's activation probabilities during the spike (bottom).
+The Na<sup>+</sup> channels respond earlier than the K<sup>+</sup> channels---
+<span style="color:#006060">m</span> increases quicker than 
+<span style="color:#a04800">n</span>.
 This allows Na<sup>+</sup> ions to flow into the cell, increasing the membrane
-potential due to the positive charges moving inside the cell, before
+potential, due to the positive charges moving inside the cell, before
 K<sup>+</sup> ions start leaving, corresponding to the initial spike in membrane
 potential.
 Once more of the K<sup>+</sup> channels start to open the potential drops back
 down to zero (and even a little below).
-At this time the Na<sup>+</sup> channels go into inactivation.
+At around the same time, Na<sup>+</sup> channels go into inactivation.
 
 {% maincolumn 'assets/img/variedinputsub.svg'
 "Figure 4: A suprathreshold current failing to elicit a spike due to the neuron's refactory
@@ -148,7 +152,7 @@ susceptible to spiking.
 During this recovery phase the cell is said to be in it's refractory period.
 In [Figure 4](#variedinputsup) a cell is excited with two currents of identical
 magnitudes.
-The first one confirms that the magnitude is strong enough to start an action
+The first one confirms that the stimulus is strong enough to start an action
 potential but the second one is unable to produce the same response.
 However, if the second stimulus is sent a little later, as in [Figure
 5](#variedinputsupra) the cell does spike.
@@ -158,13 +162,15 @@ However, if the second stimulus is sent a little later, as in [Figure
 firing to start a second spike.' %}<a name="variedinputsupra"></a>
 
 While the second spike in [Figure 4](#variedinputsup) was not able to start an
-action potential, [Figure 3](#activationprobability) shows at {% m %}10{% em %}ms post spike
-the activation probabilities are already nearing their values at rest.
+action potential, [Figure 3](#activationprobability) shows at {% m %} 10 {% em %}
+ms post spike the activation probabilities are already nearing their values at
+rest.
 Notably the inactivation probability is moving upwards indicating that many of
 the Na<sup>+</sup> channels are capable of activating.
 This suggests that a larger stimulus, such as the continuous current in 
-[Figure 6](#constantcurrent) should be capable of causing an action potential in
-spite of the cell being in its refractory period.
+[Figure 6](#constantcurrent) should be able to cause an action potential in
+spite of the cell being in its refractory period, and the figure that is in fact
+the case.
 
 {% maincolumn 'assets/img/constantcurrent.svg'
 'Figure 6: A constant current applied to a neuron causing rhythmic firing at a
@@ -179,9 +185,9 @@ This is due to the Na<sup>+</sup> channels becoming temporarily inactive
 following a spike.
 Until enough channels leave the inactive state no stimulus will be able to cause
 an action potential.
-The refractory period should then be further broken down.
-Absolute refractory is the time when too many Na<sup>+</sup> channels are
-inactive and the neuron is unable to spike, relative refractory is when the cell
+The refractory period should then be further broken down into:
+absolute refractory---the time when too many Na<sup>+</sup> channels are
+inactive for the neuron to spike, and relative refractory---when the cell
 is still recovering but can be excited with a large enough stimulus.
 As a consequence of a repeatable absolute refractory period, a neuron under
 continuous stimulation (as in [Figure 6](#constantcurrent)) will spike
@@ -190,7 +196,7 @@ Additionally, neurons with similar dynamics (i.e. those whose refactory period's
 have similar duration) can become linked.
 If a strong stimulation excites a group of neurons the neurons with similar
 dynamics will be inactive and then ready to fire again at the same time leading
-to synchronization.
+to potential synchronization.
 
 {% maincolumn 'assets/img/first5neurons.gif' 
 'Figure 7: The membrane potentials changing over time of the first 5 neurons in
@@ -208,18 +214,18 @@ Each of the neuron's time constants (what determines the response times of the
 activation probabilities and consequently the duration of an action potential
 and the following refractory periods) were randomly generated via a normal
 distribution to add some variance in the neurons.
-Secondly, the connection weights between neurons are also randomly generated and
-randomly pruned (i.e. weights are set to zero at random).
+Secondly, the connection weights between neurons were also randomly generated
+and randomly pruned (i.e. weights were set to zero at random).
 The parameters were chosen simply to keep the network stimulating itself
 indefinitely while not going into a seizure.
-The network is set off by an initial stimulation of neuron 1 from there it is
+The network is set off by an initial stimulation to neuron 1 from there it is
 maintained entirely by neurons stimulating each other.
 Obviously an extreme oversimplification of a real brain but still a fun
 simulation.
 I would like to see if I can get some synchronization between neurons but so far
-have been enable to.
+have been unable to.
 Each neuron likely needs to have one of a small set of time constants rather
-than complete randomness between them. 
+than completely random constants. 
 Also there needs to be a way to ensure enough like neurons are being connected
 without over-connecting the network.
 
@@ -234,8 +240,9 @@ Based on the paper by Kesar T. et al, *Predicting Muscle Forces of Individuals w
 hemiparesis following stroke*, [Figure 9](#muscleTwitch) simulates the
 contraction of a muscle in response to an impulse train.
 Taking advantage of the summative properties of muscle contraction the solution
-of the entire train of impulses can be simplified to the sum of the solution to
-a single impulse copied and time-shifted for each identical impulse.
+to the response of the entire train of impulses can be simplified to the sum of
+the solution to a single impulse copied and time-shifted for each identical
+impulse.
 This significantly reduces the computation time of the ordinary differential
 equation (ODE) solver, the slowest part of the simulation.
 Additionally, many of the parameters that can be changed in the GUI do not
