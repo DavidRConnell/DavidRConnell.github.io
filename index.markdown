@@ -22,6 +22,6 @@ ongoing, from work and school.
 
 {% newthought 'Thesis' %} -- A copy of my master thesis on detecting Sudden
 Unexpected Death in Epilepsy with an Apple Watch{% sidenote 'mn-id-thesiscode'
-'The [Python code](https://github.com/DavidRConnell/SUDEPmonitor) for
+'The [Python code](https://github.com/DavidRConnell/SUDEPmonitor) I wrote for
 downloading and analyzing files from the created database' %}.
 (Link opens a PDF.)
