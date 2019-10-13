@@ -14,9 +14,7 @@ provide reproducable work.
 
 ## Site Contents
 {% newthought 'Résumé' %} -- List of degrees and work experiences.
-Toned down as the site as a whole is intended to provide extra information about
-my experiences and objectives.
-Additonally, there is a [link](/downloads/resume.pdf) to a more traditional PDF
+Additionally, there is a [link](/downloads/resume.pdf) to a more traditional PDF
 version.
 
 {% newthought 'Portfolio' %} -- Description of select projects, completed and
