@@ -19,7 +19,7 @@ my experiences and objectives.
 Additonally, there is a [link](/downloads/resume.pdf) to a more traditional PDF
 version.
 
-{% newthought 'History' %} -- Description of select projects, completed and
+{% newthought 'Portfolio' %} -- Description of select projects, completed and
 ongoing, from work and school.
 
 {% newthought 'Thesis' %} -- A copy of my master thesis on detecting Sudden

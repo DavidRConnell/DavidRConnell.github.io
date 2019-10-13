@@ -1,5 +1,5 @@
 ---
-title: History
+title: Portfolio
 layout: default
 ---
 
@@ -8,11 +8,14 @@ layout: default
 [Hodgkin Huxley model](#HHmodel)<br>
 [Muscle Twitch Simulation](#twitch)" %}
 
+Below are three examples of my previos work: creating a GENEActiv workflow,
+simulating neurons with the Hodgkin Huxley model, and simulating a muscle twitch.
 The first project has been part of my work at Rush University while the
 latter two come from class work as part of my Master's degree at Illinois
 Institute of Technology.
 
-## GENEActiv Workflow<a name="geneactiv"></a>
+<br>
+## GENEActiv Workflow (Rush University)<a name="geneactiv"></a>
 
 The GENEActiv workflow has been my largest contribution at Rush.
 GENEActivs are a wrist worn device that record a high time resolution
@@ -69,14 +72,15 @@ non-walking periods, when searching for windows with a high concentration of
 steps (indicated by the black lines below the accelerometer data) the calculated
 time walking matches the true (step tracker) data closely.
 
-## Hodgkin Huxley model<a name="HHmodel"></a>
+<br>
+## Hodgkin Huxley model (Illinois Tech)<a name="HHmodel"></a>
 
 My favorite project from school was using the Hodgkin Huxley model to simulate
 neurons and show some of their characteristics
 {% sidenote 'mn-id-hhcode' 
-'The [MATLAB code](https://github.com/DavidRConnell/Hodgkin_Huxley_Model) 
-for simulating the Hodgkin Huxley neurons and generating the figures. (Note: the
-figures here have been modified to better match the site theme)' %}.
+'The [MATLAB code](https://github.com/DavidRConnell/Hodgkin_Huxley_Model)
+I wrote for simulating the Hodgkin Huxley neurons and generating the figures.
+(Note: the figures here have been modified to better match the site theme)' %}.
 Inspired by Eugene M. Izhikevich's book *Dynamical Systems in Neuroscience* and
 György Buzsáki's *Rhythms of the Brain*, the simulation was used to show
 refractory periods, the change in firing threshold based on the
@@ -199,8 +203,8 @@ dynamics will be inactive and then ready to fire again at the same time leading
 to potential synchronization.
 
 {% maincolumn 'assets/img/first5neurons.gif' 
-'Figure 7: The membrane potentials changing over time of the first 5 neurons in
-the network.' %}<a name="first5neurons"></a>
+'Figure 7: The membrane potentials of the first 5 neurons in the network
+changing over time.' %}<a name="first5neurons"></a>
 
 {% maincolumn 'assets/img/all50neurons.gif' 
 'Figure 8: Instantaneous membrane potential of all 50 neurons in the network.'
@@ -229,7 +233,8 @@ than completely random constants.
 Also there needs to be a way to ensure enough like neurons are being connected
 without over-connecting the network.
 
-## Muscle Twitch Simulation<a name="twitch"></a>
+<br>
+## Muscle Twitch Simulation (Illinois Tech)<a name="twitch"></a>
 
 <br>
 {% fullwidth 'assets/img/muscleTwitch.svg'
