@@ -8,7 +8,7 @@ layout: default
 [Hodgkin Huxley model](#HHmodel)<br>
 [Muscle Twitch Simulation](#twitch)" %}
 
-Below are three examples of my previos work: creating a GENEActiv workflow,
+Below are three examples of my previous work: creating a GENEActiv workflow,
 simulating neurons with the Hodgkin Huxley model, and simulating a muscle twitch.
 The first project has been part of my work at Rush University while the
 latter two come from class work as part of my Master's degree at Illinois
