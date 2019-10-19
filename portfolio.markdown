@@ -136,8 +136,7 @@ potential.' %}<a name="activationprobability"></a>
 
 [Figure 3](#activationprobability) shows an action potential (top) and the
 cell's activation probabilities during the spike (bottom).
-The Na<sup>+</sup> channels respond earlier than the K<sup>+</sup> channels---
-<span style="color:#006060">m</span> increases quicker than 
+The Na<sup>+</sup> channels respond earlier than the K<sup>+</sup> channels---<span style="color:#006060">m</span> increases quicker than 
 <span style="color:#a04800">n</span>.
 This allows Na<sup>+</sup> ions to flow into the cell, increasing the membrane
 potential, due to the positive charges moving inside the cell, before
