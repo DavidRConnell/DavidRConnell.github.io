@@ -8,11 +8,11 @@ layout: default
 ### Education
 **Master of Science, Biomedical Engineering**{% marginnote 'mn-id-**December 2017**' '<span style="font-size: 110%">**December 2017**</span>'%}
 #### Illinois Institute of Technology, Chicago, IL
-#### 3.88
+#### GPA: 3.88
 
 **Bachelor of Science, Bioengineering**{% marginnote 'mn-id-**December 2015**' '<span style="font-size: 110%">**December 2015**</span>'%}
 #### Miami University, Oxford, OH
-#### 3.42
+#### GPA: 3.42
 
 
 

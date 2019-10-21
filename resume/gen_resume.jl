@@ -276,7 +276,7 @@ function writemarkdownelement(element::Education)
     "**$(element.degree[1]), $(element.program[1])**" *
     rightalign("**$(element.date[1])**") *
     "\n#### $(element.school[1]), $(element.location[1])" *
-    "\n#### $(element.gpa[1])\n\n"
+    "\n#### GPA: $(element.gpa[1])\n\n"
 end
 
 function writemarkdownelement(element::Thesis)
