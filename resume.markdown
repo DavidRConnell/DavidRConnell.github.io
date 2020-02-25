@@ -41,4 +41,4 @@ layout: default
 
 
 ### Computer Languages
-MATLAB, Python, Bash, Lisp, Swift, LaTeX
+MATLAB, Julia, Bash, Lisp, Python, Swift, LaTeX

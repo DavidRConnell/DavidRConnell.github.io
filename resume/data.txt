@@ -48,4 +48,4 @@ Department: Anesthesia Research Lab
 Items: Presented current anesthesia monitoring systems to anesthesiology staff.%Wrote programs in VBA to modify Excel files.%Retrieved data for studies on perioperative pressure ulcer prevention, foreign body ingestion by federal inmates, and the affects of tranexamic acid on blood loss during hip replacement surgery.
 
 # Computer Languages
-List: MATLAB, Python, Bash, Lisp, Swift, \LaTeX
+List: MATLAB, Julia, Bash, Lisp, Python, Swift, \LaTeX
