@@ -160,8 +160,8 @@ function writelatexpreamble()
     raw"\documentclass{resume}
 
 \author{David R. Connell}
-\email{david\_r\_connell@rush.edu}
-\link{davidrconnell.github.io}
+\email{\href{mailto:David\_R\_Connell@rush.edu}{david\_r\_connell@rush.edu}}
+\link{\href{https://davidrconnell.github.io}{davidrconnell.github.io}}
 \phone{614.558.1522}
 \area{Chicago,~IL}
 
